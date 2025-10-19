@@ -1,59 +1,26 @@
-# EcommerceApp
+# Angular Fundamentals Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+This project is a small educational Angular application built to practice and demonstrate the core concepts of Angular framework.  
+It focuses on implementing the most essential features used in real-world applications.
 
-## Development server
+## Features & Concepts Covered
+- **Components** – Building reusable and modular UI elements.
+- **Data Binding** – Applying one-way and two-way data binding for dynamic views.
+- **Directives** – Using built-in structural and attribute directives.
+- **Routing** – Navigating between pages with Angular Router.
+- **Services & Dependency Injection** – Sharing logic and data across components.
+- **HTTP Client** – Consuming mock APIs for data fetching and display.
+- **Forms** – Working with template-driven and reactive forms.
+- **Basic State Management** – Handling shared data and simple application state.
 
-To start a local development server, run:
+## Technologies Used
+- **Angular 20**
+- **TypeScript**
+- **HTML5 / CSS3 / Bootstrap**
+- **VS Code**
 
+## Getting Started
+To run the project locally:
 ```bash
+npm install
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
