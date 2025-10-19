@@ -1,0 +1,17 @@
+<div class="mb-3">
+        <label for="category" class="form-label">Choose Category</label>
+        <select id="category" [(ngModel)]="selectedCatId" class="form-select">
+            <option selected disabled>Choose...</option>
+            <option [value]=0>All</option>
+            @for(item of categories; track item){       
+            <option [value]="item.id">{{item.name}}</option>
+            }
+        </select>
+    </div>
+
+    <div class="bg-warning my-2">
+<app-product [recievedCatid] = "selectedCatId" (onTotalPriceChanged) = "calcluteOrderPrice($event)"></app-product>
+    </div>
+
+<h2>{{recivedOrderPrice}}</h2>
+<input type="text" #textInput>

@@ -1,0 +1,66 @@
+<div class="container row justify-content-center py-5">
+    <div class="col-6">
+        <h1>{{userRegisterForm.value | json}}</h1>
+        <form [formGroup]="userRegisterForm">
+            <div class="form-group mt-2">
+                <label for="exampleInputName">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="exampleInputName"
+                    placeholder="Enter your name">
+                @if(userRegisterForm.get('name')?.invalid && userRegisterForm.get('name')?.touched ){
+                @if(userRegisterForm.get('name')?.errors?.['required']){
+                <span class="text-danger">Required</span>
+                }
+
+                @if(userRegisterForm.get('name')?.errors?.['minlength']){
+                <span class="text-danger">Minimum length is 3 characters</span>
+                }
+
+
+                }
+
+            </div>
+            <div class="form-group mt-2">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group mt-2">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password">
+            </div>
+            <div formGroupName="address">
+
+                <div class="form-group mt-2">
+                    <label for="exampleInputCity1">City</label>
+                    <input type="text" formControlName="city" class="form-control" id="exampleInputCity1"
+                        placeholder="city">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="exampleInputStreet1">Street</label>
+                    <input type="text" formControlName="street" class="form-control" id="exampleInputStreet1"
+                        placeholder="street">
+                </div>
+            </div>
+            <div formArrayName="phoneNums">
+                @for(control of phoneNums.controls; track $index) {
+                <div class="form-group mt-2">
+                    <label for="phone{{ $index }}">Add Phone {{$index+1}}</label>
+                    <input type="text" formControlName="$index" class="form-control" id="phone{{ $index }}"
+                        placeholder="Phone">
+                    @if(control.invalid && control.touched) {
+                    <small class="text-danger">Invalid phone number</small>
+                    }
+                </div>
+                }
+            </div>
+            <div class="my-3">
+                <button class="btn btn-primary" (click)="addNewPhone()">add new phone</button>
+            </div>
+
+            <button type="submit" [disabled]="userRegisterForm.invalid" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>

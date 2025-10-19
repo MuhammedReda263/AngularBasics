@@ -1,0 +1,12 @@
+<p>{{product?.name}}</p>
+<p>{{product?.price}}</p>
+<img [src]="product?.imgUrl">
+<div>
+<button class="btn btn-danger" (click)="BackFun()">Back</button>
+</div>
+
+<!-- <div>
+<button class="btn btn-success" (click)="PrevFun()" [disabled]="currentId==productsIdList[0]">Prev</button>
+<button class="btn btn-primary" (click)="NextFun()" [disabled]="currentId==productsIdList[productsIdList.length-1]">Next</button>
+</div> -->
+

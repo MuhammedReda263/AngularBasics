@@ -1,0 +1,43 @@
+<div class="container py-5">
+    <h2>Total Price : {{totalPrice}}</h2>
+    <!-- <h3>Id of selected item : {{selectedCatId}}</h3> -->
+
+    <div class="row">
+
+        <!-- [ngClass]="{'d-none': item.catId != selectedCatId}" -->
+        @for (item of filteredProducts; track item.id) {
+        @if (item.quantity !=0){
+        <div class="col-3 py-2" [ngStyle]="{border:(item.quantity==1)? '1px solid red' : '1px solid green'}">
+            <div class="card" style="width: 18rem;">
+                <img [src]="item.imgUrl" class="card-img-top" alt="...">
+                <div class="card-body" appHighlightcard="blue" externalColor="pink"
+                    [ngClass]="(item.quantity==1)?'text-danger':'text-success'">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text">Price: {{ item.price |currency : 'EUR'}}</p>
+                    <p class="card-text">id: {{ item.id}}</p>
+                    @if(item.quantity !=1){
+                    <p class="card-text">Quantity: {{ item.quantity }}</p>
+                    }
+                    @else {
+                    <p class="card-text">Last item</p>
+                    }
+
+                    <button class="btn btn-success" (click)="goToDetails(+item.id)">Details</button>
+
+                    <input type="number" #inputQuen>
+                    <button class="btn btn-primary" (click)="buy(inputQuen.value,item.price)">Buy</button>
+                </div>
+            </div>
+        </div>
+        }
+
+        }@empty {
+        <h1>Empty List</h1>
+        }
+
+
+    </div>
+</div>
+
+<h2>{{MyDate | date : 'shortDate'}}</h2>
+<h2>{{num | squre}}</h2>
